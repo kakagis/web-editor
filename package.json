@@ -1,5 +1,5 @@
 {
-    "name": "iiiii",
+    "name": "web-editor",
     "private": true,
     "version": "0.0.0",
     "type": "module",
@@ -7,7 +7,8 @@
         "dev": "vite",
         "build": "tsc && vite build",
         "preview": "vite preview",
-        "format": "prettier --write ."
+        "format": "prettier --write .",
+        "deploy": "npm run build && gh-pages -d dist"
     },
     "dependencies": {
         "@monaco-editor/react": "^4.4.6",
@@ -21,6 +22,7 @@
         "@types/react-dom": "^18.0.9",
         "@vitejs/plugin-react-swc": "^3.0.0",
         "autoprefixer": "^10.4.13",
+        "gh-pages": "^4.0.0",
         "postcss": "^8.4.19",
         "prettier": "^2.8.1",
         "tailwindcss": "^3.2.4",
