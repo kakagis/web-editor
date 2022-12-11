@@ -28,9 +28,9 @@ const EditorContextProvider: FC<EditorContextProviderProps> = ({
     const [js, setJs] = useLocalStorage("js", defaultJs);
 
     const format = () => {
-        setHtml(fmt(html, "html"));
-        setCss(fmt(css, "css"));
-        setJs(fmt(js, "js"));
+        fmt(html, "html").then((html) => setHtml(html));
+        fmt(css, "css").then((css) => setCss(css));
+        fmt(js, "js").then((js) => setJs(js));
     };
 
     return (

@@ -1,9 +1,9 @@
-import parserBabel from "prettier/parser-babel";
-import parserCss from "prettier/parser-postcss";
-import parserHtml from "prettier/parser-html";
-import { format } from "prettier/standalone";
+export default async function fmt(code: string, type: "html" | "css" | "js") {
+    const parserBabel = (await import("prettier/parser-babel")).default;
+    const parserCss = (await import("prettier/parser-postcss")).default;
+    const parserHtml = (await import("prettier/parser-html")).default;
+    const { format } = (await import("prettier/standalone")).default;
 
-export default function fmt(code: string, type: "html" | "css" | "js") {
     return format(code, {
         plugins: [parserBabel, parserHtml, parserCss],
         parser: type === "js" ? "babel" : type,

@@ -1,13 +1,17 @@
 import { EditorContextProvider } from "./contexts/context";
-import CodeEditor from "./components/CodeEditor";
 import TopBar from "./components/TopBar";
+import { lazy, Suspense } from "react";
+
+const CodeEditor = lazy(() => import("./components/CodeEditor"));
 
 const App = () => {
     return (
         <div className="w-screen h-screen">
             <EditorContextProvider>
                 <TopBar />
-                <CodeEditor />
+                <Suspense>
+                    <CodeEditor />
+                </Suspense>
             </EditorContextProvider>
         </div>
     );
